@@ -14,6 +14,13 @@ Vagrant.configure("2") do |config|
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://vagrantcloud.com/search.
 
+  vars = { 
+     "KAFKA_VERSION" => "1.1.0",
+     "KAFKA_NAME" => "kafka_2.11-$KAFKA_VERSION",
+     "KAFKA_TARGET" => "/vagrant/tars/",
+     "KAFKA_HOME" => "$HOME/$KAFKA_NAME"
+  }
+
   config.vm.define "master" do |master|
     master.vm.box = default_box
     master.vm.hostname = "master"
@@ -80,6 +87,8 @@ Vagrant.configure("2") do |config|
   #   # Customize the amount of memory on the VM:
   #   vb.memory = "1024"
   # end
+
+  config.vm.provision "shell", path: "scripts/init.sh", env: vars
   #
   # View the documentation for the provider you are using for more
   # information on available options.
