@@ -1,0 +1,3 @@
+---GRPC README----
+	Service GetLocationId: client send "location_id" and then recevie messgae LocationResponseId about detail (location_id, latitude, longtitude)
+	Service LocationCreate: User end infor of location to kafka and kafka run and save database, user will receive data in message response.

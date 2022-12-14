@@ -6,7 +6,7 @@ WORKDIR /app
 RUN apk add --no-cache gcc musl-dev linux-headers geos libc-dev postgresql-dev
 
 COPY ./modules/locations-kafka/requirements.txt requirements.txt
-COPY ./modules/locations-kafka/app/location_kafka.py location_kafka.py
+COPY ./modules/locations-kafka/app/location_kafka_consumer.py location_kafka_consumer.py
 
 COPY ./modules/locations-kafka/app/database database/
 COPY ./modules/locations-kafka/app/models.py models.py

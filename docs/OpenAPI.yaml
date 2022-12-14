@@ -1,0 +1,173 @@
+openapi: 3.0.1
+info:
+  title: defaultTitle
+  description: defaultDescription
+  version: '0.1'
+servers:
+  - url: http://localhost:30004
+  - url: http://localhost:30003
+paths:
+  /api/persons/1:
+    get:
+      description: Auto generated using Swagger Inspector
+      responses:
+        '200':
+          description: Auto generated using Swagger Inspector
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  company_name:
+                    type: string
+                  last_name:
+                    type: string
+                  id:
+                    type: integer
+                  first_name:
+                    type: string
+              examples:
+                '0':
+                  value: >
+                    {
+                      "company_name": "Hampton, Hampton and McQuill",
+                      "last_name": "Trexler",
+                      "id": 1,
+                      "first_name": "Pam"
+                    }
+      servers:
+        - url: http://localhost:30003
+    servers:
+      - url: http://localhost:30003
+  /api/persons:
+    get:
+      description: Auto generated using Swagger Inspector
+      responses:
+        '200':
+          description: Auto generated using Swagger Inspector
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+              examples:
+                '0':
+                  value: >
+                    [
+                      {
+                        "company_name": "Alpha Omega Upholstery",
+                        "last_name": "Fargo",
+                        "first_name": "Taco",
+                        "id": 5
+                      },
+                      {
+                        "company_name": "USDA",
+                        "last_name": "Shader",
+                        "first_name": "Frank",
+                        "id": 6
+                      },
+                      {
+                        "company_name": "Hampton, Hampton and McQuill",
+                        "last_name": "Trexler",
+                        "first_name": "Pam",
+                        "id": 1
+                      },
+                      {
+                        "company_name": "Paul Badman & Associates",
+                        "last_name": "Badman",
+                        "first_name": "Paul",
+                        "id": 8
+                      },
+                      {
+                        "company_name": "The Chicken Sisters Restaurant",
+                        "last_name": "Spring",
+                        "first_name": "Otto",
+                        "id": 9
+                      },
+                      {
+                        "company_name": "Company test",
+                        "last_name": "Mai",
+                        "first_name": "Hoang",
+                        "id": 39
+                      },
+                      {
+                        "company_name": "Company test",
+                        "last_name": "Mai",
+                        "first_name": "Hoang",
+                        "id": 40
+                      }
+                    ]
+      servers:
+        - url: http://localhost:30003
+    post:
+      description: Auto generated using Swagger Inspector
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                company_name:
+                  type: string
+                last_name:
+                  type: string
+                first_name:
+                  type: string
+            examples:
+              '0':
+                value: "{\r\n    \"first_name\":\"Hoang\",\r\n    \"last_name\":\"Mai\",\r\n    \"company_name\":\"Company test\"\r\n}"
+      responses:
+        '200':
+          description: Auto generated using Swagger Inspector
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  company_name:
+                    type: string
+                  last_name:
+                    type: string
+                  id:
+                    type: integer
+                  first_name:
+                    type: string
+              examples:
+                '0':
+                  value: >
+                    {
+                      "company_name": "Company test",
+                      "last_name": "Mai",
+                      "id": 39,
+                      "first_name": "Hoang"
+                    }
+      servers:
+        - url: http://localhost:30003
+    servers:
+      - url: http://localhost:30003
+  /api/persons/5/connection:
+    get:
+      description: Auto generated using Swagger Inspector
+      parameters:
+        - name: end_date
+          in: query
+          schema:
+            type: string
+          example: '2020-09-01'
+        - name: distance
+          in: query
+          schema:
+            type: string
+          example: '555'
+        - name: start_date
+          in: query
+          schema:
+            type: string
+          example: '2020-04-01'
+      responses:
+        '200':
+          description: Auto generated using Swagger Inspector
+      servers:
+        - url: http://localhost:30004
+    servers:
+      - url: http://localhost:30004

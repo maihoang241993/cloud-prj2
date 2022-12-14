@@ -150,3 +150,6 @@ Your architecture diagram should focus on the services and how they talk to one 
 ## Tips
 * We can access a running Docker container using `kubectl exec -it <pod_id> sh`. From there, we can `curl` an endpoint to debug network issues.
 * The starter project uses Python Flask. Flask doesn't work well with `asyncio` out-of-the-box. Consider using `multiprocessing` to create threads for asynchronous behavior in a standard Flask application.
+1. install java: 
+   1. wget https://download.oracle.com/java/17/latest/jdk-17_linux-x64_bin.rpm
+   2. sudo rpm -ivh jdk-17_linux-x64_bin.rpm

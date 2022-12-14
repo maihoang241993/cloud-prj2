@@ -14,7 +14,6 @@ logging.basicConfig(filename="log.txt", level=logging.DEBUG)
 
 
 class LocationService:
-
     @staticmethod
     def create(location: Dict) -> Location:
         validation_results: Dict = LocationSchema().validate(location)
@@ -26,7 +25,7 @@ class LocationService:
         new_location.person_id = location["person_id"]
         new_location.creation_time = location["creation_time"]
         new_location.coordinate = ST_Point(location["latitude"], location["longitude"])
-        db.session.add(new_location)
-        db.session.commit()
+        session.add(new_location)
+        session.commit()
 
         return new_location

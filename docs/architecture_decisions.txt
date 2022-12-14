@@ -1,0 +1,12 @@
+Frontend Client:
+Use API Restful, with protocol HTTP Because client can use in any browser to access frontend
+
+Connection Route:
+Still using the Restful API protocol, because the HTTPS protocol is easier to communicate with the client than gRPC and kafka
+
+Person Route:
+Still using the Restful API protocol, because the HTTPS protocol is easier to communicate with the client than gRPC and kafka
+
+Location Route:
+I will change message passing to gRPC with protocol buffer and Kafka with protocol TCP
+Since location is not called in any client api, therefore I can easy to change message passing.

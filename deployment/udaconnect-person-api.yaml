@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Secret
 metadata:
-  name: secret-udaconnect-locations-api
+  name: secret-udaconnect-person-api
 data:
   .dockerconfigjson: ewoJImF1dGhzIjogewoJCSJodHRwczovL2luZGV4LmRvY2tlci5pby92MS8iOiB7CgkJCSJhdXRoIjogImFHOWhibWR0ZGpJNlVHMWpiMlJsTVRFeU1qTXoiCgkJfQoJfQp9
 type: kubernetes.io/dockerconfigjson
@@ -10,37 +10,37 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    service: udaconnect-locations-api
-  name: udaconnect-locations-api
+    service: udaconnect-person-api
+  name: udaconnect-person-api
 spec:
   ports:
   - name: "5001"
-    port: 5001
-    targetPort: 5005
-    nodePort: 30002
+    port: 5002
+    targetPort: 5000
+    nodePort: 30003
   selector:
-    service: udaconnect-locations-api
+    service: udaconnect-person-api
   type: NodePort
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    service: udaconnect-locations-api
-  name: udaconnect-locations-api
+    service: udaconnect-person-api
+  name: udaconnect-person-api
 spec:
   replicas: 1
   selector:
     matchLabels:
-      service: udaconnect-locations-api
+      service: udaconnect-person-api
   template:
     metadata:
       labels:
-        service: udaconnect-locations-api
+        service: udaconnect-person-api
     spec:
       containers:
-      - image: hoangmv2/udaconnect-locations-api:latest
-        name: udaconnect-locations-api
+      - image: hoangmv2/udaconnect-person-api:latest
+        name: udaconnect-person-api
         imagePullPolicy: Always
         env:
         - name: DB_USERNAME
@@ -70,4 +70,4 @@ spec:
               key: DB_PORT
       restartPolicy: Always
       imagePullSecrets:
-      - name: secret-udaconnect-locations-api
+      - name: secret-udaconnect-person-api
